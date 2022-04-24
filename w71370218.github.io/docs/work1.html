@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+    <meta lang="zh">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="UR"/>
+    <meta name="description" content="這是楊子右的個人網站。介紹關於楊子右的個人資訊。"/>
+    <meta property="og:title" content="網頁成果: 書圖同歸 | 楊子右的個人網頁"/>
+    <meta property="og:description" content="這是楊子右的個人網站。介紹關於楊子右的個人資訊。"/>
+    <title>網頁成果: 書圖同歸 | 楊子右的個人網頁</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script>
+        function menu(){
+            document.getElementsByClassName('show-nav-bar')[0].style.width = "350px";
+            document.getElementsByClassName('show-nav-bar')[0].style.borderRight= "calc(2px) solid black";
+        };
+        function close(){
+            document.getElementsByClassName('show-nav-bar')[0].style.width = "0";
+        };
+
+    </script>
+</head>
+<body>
+        <div class="container">
+            <nav class="show-nav-bar">
+                <ul>
+                    <li class="menu" onclick="document.getElementsByClassName('show-nav-bar')[0].style.width = '0'; document.getElementsByClassName('show-nav-bar')[0].style.borderRight = '';"><a href="javascript:void(0)" ><img style="height: 2rem;" src="./icons/icons8-menu.svg"> </a></li>
+                    <a href="index.html"><li>首頁</li></a>
+                    <a href="resume.html".html"><li>個人履歷</li></a>
+                    <a href="contact.html"><li>聯絡方式</li></a>
+                    <a href="HW/index.html"><li>網頁成果: 介紹輔大與科系的網頁</li></a>
+                    <a href="work1.html"><li>網頁成果: 書圖同歸</li></a>
+                </ul>
+            </nav>
+            <header>
+                <nav>
+                    <ul>
+                        <li class="menu" onclick="menu()"><img style="height: 2rem;" src="./icons/icons8-menu.svg"> </li>
+                        <li class="title"><a href="index.html">楊子右的個人網頁</a></li>
+                        <li class="blank"></li>
+                    </ul>
+                </nav>
+                
+            </header>
+            <main class="work1">
+                <div class="headshotDIV"><img src="./img/讀服專題海報.jpg" class="poster"></div>
+                
+                <div class="text">
+                    <h1>書圖同歸：在茫茫書海中找到屬於你的書</h1>
+                <p>大三時修讀讀者服務，這堂課的期中團體報告要設計一個圖書館推廣活動，我的組別設計了一個活動名為「書圖同歸—在茫茫書海中，找到屬於你的書」，活動意旨是在網路上透過心理測驗薦書給讀者，引誘讀者去借閱圖書館的書籍，這個概念是由我發想的，因為我認為推廣圖書館就是要走出圖書館，去尋找潛在的讀者，現今網路具有強大的傳播力，利用心理測驗吸引讀者興趣是一種新奇有趣的方法，我在報告中負責製作基本架構的網站、部署網站。</p>
+                <p>網站框架: Django</p>
+                <p>部屬方式: Heroku</p>
+                <p>網站連結: <a href="https://web-lib-fju-edu-tw.herokuapp.com/game/" target="_blank">https://web-lib-fju-edu-tw.herokuapp.com/game/</a></p>
+                <strong>提醒: 外部連結需要連接網際網路</strong>
+                <br>
+                <a href="https://github.com/w71370218/LPG_Library-Psychological-Game" class="github">
+                    <svg height="50" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="50" data-view-component="true" class="octicon octicon-mark-github">
+                        <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                </a>
+            </div>
+                
+            </main>
+        </div>
+        <div class="background">
+            <embed src="./img/3.svg"" type="image/svg+xml" class="flower f1" /> 
+            <embed src="./img/4.svg"" type="image/svg+xml" class="flower f2" /> 
+            <div class="rain"></div>
+        </div>
+        
+    
+    
+</body>
+</html>

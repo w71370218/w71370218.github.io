@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head>
+    <meta lang="zh">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="UR"/>
+    <meta name="description" content="這是楊子右的個人網站。介紹關於楊子右的個人資訊。"/>
+    <meta property="og:title" content="個人履歷 | 楊子右的個人網頁"/>
+    <meta property="og:description" content="這是楊子右的個人網站。介紹關於楊子右的個人資訊。"/>
+    <title>個人履歷 | 楊子右的個人網頁</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script>
+        function menu(){
+            document.getElementsByClassName('show-nav-bar')[0].style.width = "350px";
+            document.getElementsByClassName('show-nav-bar')[0].style.borderRight= "calc(2px) solid black";
+        };
+        function close(){
+            document.getElementsByClassName('show-nav-bar')[0].style.width = "0";
+        };
+
+    </script>
+</head>
+<body>
+        <div class="container">
+            <nav class="show-nav-bar">
+                <ul>
+                    <li class="menu" onclick="document.getElementsByClassName('show-nav-bar')[0].style.width = '0'; document.getElementsByClassName('show-nav-bar')[0].style.borderRight = '';"><a href="javascript:void(0)" ><img style="height: 2rem;" src="./icons/icons8-menu.svg"> </a></li>
+                    <a href="index.html"><li>首頁</li></a>
+                    <a href="resume.html".html"><li>個人履歷</li></a>
+                    <a href="contact.html"><li>聯絡方式</li></a>
+                    <a href="HW/index.html"><li>網頁成果: 介紹輔大與科系的網頁</li></a>
+                    <a href="work1.html"><li>網頁成果: 書圖同歸</li></a>
+                </ul>
+            </nav>
+            <header>
+                <nav>
+                    <ul>
+                        <li class="menu" onclick="menu()"><img style="height: 2rem;" src="./icons/icons8-menu.svg"> </li>
+                        <li class="title"><a href="index.html">楊子右的個人網頁</a></li>
+                        <li class="blank"></li>
+                    </ul>
+                </nav>
+                
+            </header>
+            <main class="resume">
+                <div class="headshotDIV"><img src="./img/img.jpg" class="resume-headshot"></div>
+                
+                <div class="text table">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>個人簡介</td>
+                                <td>畢業於輔仁大學圖書資訊學系，修讀輔系資訊工程學系。我從國小就接觸到電腦並感到有興趣，同時我也喜歡畫圖，會使用電繪板和電腦的繪圖軟體，因此對於電腦的軟體、應用程式能輕易上手。
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>學歷</td>
+                                <td>輔仁大學圖書資訊學系畢業</td>
+                            </tr>
+                            <tr>
+                                <td>經歷</td>
+                                <td>
+                                    <ol>
+                                        <li>輔仁大學圖書資訊學系資訊科學研究會成員</li>
+                                        <li>輔仁大學圖書資訊學系第50屆系學會美宣股成員</li>
+                                    </ol>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>語言</td>
+                                <td>
+                                    <ul>
+                                        <li>中文：精通</li>
+                                        <li>英文：中等</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>電腦能力</td>
+                                <td>
+                                    辦公室應用：
+                                    <ul>
+                                        <li>Word：精通</li>
+                                        <li>Excel：精通</li>
+                                        <li>PowerPoint：精通</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>其他</td>
+                                <td>
+                                    <ol>
+                                        <li>參加系上圖書館服務隊出隊，2021年寒假於南投廬山國小服務</li>
+                                        <li>在系學會參加學校系上聖誕布置的比賽獲得第一名</li>
+                                    </ol>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </main>
+        </div>
+        <div class="background">
+            <embed src="./img/3.svg"" type="image/svg+xml" class="flower f1" /> 
+            <embed src="./img/4.svg"" type="image/svg+xml" class="flower f2" /> 
+            <div class="rain"></div>
+        </div>
+        
+    
+    
+</body>
+</html>
