@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <meta lang="zh">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="UR"/>
+    <meta name="description" content="這是楊子右的個人網站。介紹關於楊子右的個人資訊。"/>
+    <meta property="og:title" content="聯絡方式 | 楊子右的個人網頁"/>
+    <meta property="og:description" content="這是楊子右的個人網站。介紹關於楊子右的個人資訊。"/>
+    <title>聯絡方式 | 楊子右的個人網頁</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script>
+        function menu(){
+            document.getElementsByClassName('show-nav-bar')[0].style.width = "350px";
+            document.getElementsByClassName('show-nav-bar')[0].style.borderRight= "calc(2px) solid black";
+        };
+        function close(){
+            document.getElementsByClassName('show-nav-bar')[0].style.width = "0";
+        };
+
+    </script>
+</head>
+<body>
+        <div class="container">
+            <nav class="show-nav-bar">
+                <ul>
+                    <li class="menu" onclick="document.getElementsByClassName('show-nav-bar')[0].style.width = '0'; document.getElementsByClassName('show-nav-bar')[0].style.borderRight = '';"><a href="javascript:void(0)" ><img style="height: 2rem;" src="./icons/icons8-menu.svg"> </a></li>
+                    <a href="index.html"><li>首頁</li></a>
+                    <a href="resume.html".html"><li>個人履歷</li></a>
+                    <a href="contact.html"><li>聯絡方式</li></a>
+                    <a href="HW/index.html"><li>網頁成果: 介紹輔大與科系的網頁</li></a>
+                    <a href="work1.html"><li>網頁成果: 書圖同歸</li></a>
+                </ul>
+            </nav>
+            <header>
+                <nav>
+                    <ul>
+                        <li class="menu" onclick="menu()"><img style="height: 2rem;" src="./icons/icons8-menu.svg"> </li>
+                        <li class="title"><a href="index.html">楊子右的個人網頁</a></li>
+                        <li class="blank"></li>
+                    </ul>
+                </nav>
+                
+            </header>
+            <main class="contact">
+                <div class="text">
+                    <table>
+                        <form method="GET" action="">
+                            <tr>
+                                <td class="label">姓名</td>
+                                <td>
+                                    <input type="text" id="name" name="Name" value=""  minlength="1" maxlength="30" required/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">電子郵件</td>
+                                <td>
+                                    <input type="email" id="email" name="Email" value="" minlength="1" maxlength="30" required/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">連絡電話</td>
+                                <td>
+                                    <input type="tel" id="tel" name="Tel" value="" minlength="1" maxlength="30" required/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">問題詢問</td>
+                                <td>
+                                    <textarea ></textarea>
+                                </td>
+                            </tr>
+                            <!--按鈕:送出/清除-->
+                            <tr>
+                                <td colspan="3" align="center">
+                                    <button type="submit">提交表單</button>
+                                </td>
+                            </tr>
+                            <!---------->
+                        </form>
+                    </table>
+                </div>
+                <div class="line"></div>
+                <div class="text contact">
+                    <h3>Tel: 07-1234567</h3>
+                    <h3>Email:407040328@gapp.fju.edu.tw</h3>
+                    <h3>其他聯絡方式:</h3>
+                    <div class="icon-group">
+                        <a href="https://www.facebook.com/profile.php?id=100010137909378" target="_blank"><img src="./icons/facebook.svg"  class="icon" /> </a>
+                        <a href="https://www.instagram.com/ur_328/" target="_blank"><img src="./icons/instagram.svg"  class="icon" /> </a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="background">
+            <embed src="./img/3.svg"" type="image/svg+xml" class="flower f1" /> 
+            <embed src="./img/4.svg"" type="image/svg+xml" class="flower f2" /> 
+            <div class="rain"></div>
+        </div>
+        
+    
+    
+</body>
+</html>
