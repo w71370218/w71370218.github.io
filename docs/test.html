@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script>
+      let date = new Date();
+      function FormattedTime(date){
+        const week = ['日','一','二','三','四','五','六']
+        var yy = date.getFullYear();
+        var mm = date.getMonth()+1;
+        var dd = date.getDate();
+        var ww = date.getDay();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        return yy+'年'+ mm +'月'+ dd + '日 '+'星期'+ week[ww] + ' ' + h +':'+m+':'+s ;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>test</h1>
+  </body>
+</html>
