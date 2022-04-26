@@ -20,6 +20,35 @@
         };
 
     </script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function send(){
+            var email = document.getElementById('email').value;
+            var name = document.getElementById('name').value;
+            var tel = document.getElementById('tel').value;
+            var question = document.getElementById('question').value;
+            Email.send({
+                Host : "smtp.elasticemail.com", 
+                Username : "w7147370218@gmail.com", 
+                Password : "68212E1080A448C959A3B6D3077C8718F62E", 
+                To : 'w7147370218@gmail.com',
+                From : 'w7147370218@gmail.com',
+                Subject : name +"在個人網頁上想和我連絡",
+                Body : "姓名: " + name + "\n Email: " + email + "\n 電話: " + tel + "\n 問題詢問: "+ question
+            }).then(
+            message => {
+                if ('OK') {
+                    if (!alert('您的表單已送出，可等待Email信件回覆')){
+                        location.reload();
+                    }
+                } else {
+                    if (!alert('發生錯誤：' + message))
+                        location.reload();
+                    } 
+                }
+            );
+        }
+    </script>
 </head>
 <body>
         <div class="container">
@@ -46,7 +75,6 @@
             <main class="contact">
                 <div class="text">
                     <table>
-                        <form method="GET" action="">
                             <tr>
                                 <td class="label">姓名</td>
                                 <td>
@@ -68,17 +96,16 @@
                             <tr>
                                 <td class="label">問題詢問</td>
                                 <td>
-                                    <textarea ></textarea>
+                                    <textarea id="question"></textarea>
                                 </td>
                             </tr>
                             <!--按鈕:送出/清除-->
                             <tr>
                                 <td colspan="3" align="center">
-                                    <button type="submit">提交表單</button>
+                                    <button onclick="send()">提交表單</button>
                                 </td>
                             </tr>
                             <!---------->
-                        </form>
                     </table>
                 </div>
                 <div class="line"></div>
