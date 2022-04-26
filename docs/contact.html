@@ -112,8 +112,9 @@
                 <div class="text contact">
                     <h3>Tel: 07-1234567</h3>
                     <h3>Email:407040328@gapp.fju.edu.tw</h3>
-                    <h3>其他聯絡方式:${{ env.PASSWORD }}</h3>
+                    <h3>其他聯絡方式:${{ secrets.PASSWORD }}</h3>
                     <div class="icon-group">
+                        ${{ github.PASSWORD }}
                         <a href="https://www.facebook.com/profile.php?id=100010137909378" target="_blank"><img src="./icons/facebook.svg"  class="icon" /> </a>
                         <a href="https://www.instagram.com/ur_328/" target="_blank"><img src="./icons/instagram.svg"  class="icon" /> </a>
                     </div>
