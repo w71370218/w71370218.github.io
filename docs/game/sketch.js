@@ -16,7 +16,7 @@ class Button {
     rect(this.x, this.y, this.w, this.h);
     fill(0);
     textSize(this.text_size);
-    text(this.text,this.x+(this.w-this.text.length()*25)/2,this.y+60);
+    text(this.text, this.x + (this.w - this.text.length * 25) / 2, this.y + 60);
   }
 }
 
