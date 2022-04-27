@@ -1,15 +1,17 @@
 const w = window.innerWidth;
 const h = window.innerHeight;
 
-let mySound;
+let m;
 function preload() {
-  soundFormats('mp3');
-  mySound = loadSound('assets/music/La_Campanella');
 }
 
 function setup() {
     createCanvas(w, h);
-    mySound.play();
+    m = createAudio('assets/music/La_Campanella.mp3');
+    m.autoplay(true);
+}
+
+function onVideoLoad() {
 }
 
 function canvasPressed() {
@@ -18,4 +20,7 @@ function canvasPressed() {
 function draw() {
     background(220);
     ellipse(50,50,80,80);
+}
+function mousePressed() { 
+  
 }
