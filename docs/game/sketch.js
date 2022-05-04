@@ -1,9 +1,9 @@
 class Button {
   start(x1,y1,str) {
-    this.x = x1;
-    this.y = y1;
     this.w = 240;
     this.h = 80;
+    this.x = x1;
+    this.y = y1;
     this.r = 255;
     this.g = 255;
     this.b = 255;
@@ -78,6 +78,9 @@ class MenuItem {
 const screen_w = window.innerWidth;
 const screen_h = window.innerHeight;
 
+const percent_w = screen_w/1200;
+const percent_h = screen_h/900;
+
 let file = [];
 let countdown_sound;
 let numsounds;
@@ -87,14 +90,14 @@ let music_on;
 
 let num = 20;
 let m = 15;
-let x1 = [];
-let y1 = [];
-let r = [];
-let g = [];
-let b = [];
-let a = [];
-let x2 = [];
-let y2 = [];
+let x1 = [[]];
+let y1 = [[]];
+let r = [[]];
+let g = [[]];
+let b = [[]];
+let a = [[]];
+let x2 = [[]];
+let y2 = [[]];
 
 let snow_x = [];
 let snow_y = [];
@@ -158,7 +161,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(screen_w, screen_h);
+  createCanvas(displayWidth, displayHeight);
   background(105, 105, 105);
   textSize(300);
   text("Loading...", 30, 30);
@@ -173,18 +176,28 @@ function setup() {
   music_index = 2;
 
   status = 1;
+  for (let i = num-1; i > 0; i--) {
+      x1[i] = new Array();
+      y1[i] = new Array();
+      x2[i] = new Array();
+      y2[i] = new Array();
+      r[i] = new Array();
+      g[i] = new Array();
+      b[i] = new Array();
+      a[i] = new Array();
+  } 
 }
 
 function draw() {
   if (status< 3 || status >5){
     background(0);
-    if(background == 1){
+    if(bg == 1){
       fill(255);
       for (let i = num-1; i > 0; i--) {
-        if (snow_y[i]<900){
+        if (snow_y[i]<screen_h){
            ellipse(snow_x[i], snow_y[i], 10,10);
          } else {
-           snow_x[i] = int(random(0,1200));
+           snow_x[i] = int(random(0,screen_w));
            snow_y[i] = 0;
            snow_v[i] = int(random(5,50));
          }
@@ -192,12 +205,93 @@ function draw() {
       }
     }
   }
+  if (status< 3 || status >5){
+    if (cursor == 1){
+      for (let i = num-1; i > 0; i--) {
+       for (let j = 0; j < m; j++) {
+         x1[i][j] = x1[i-1][j];
+         y1[i][j] = y1[i-1][j];
+         x2[i][j] = x2[i-1][j];
+         y2[i][j] = y2[i-1][j];
+         r[i][j] = r[i-1][j];
+         g[i][j] = g[i-1][j];
+         b[i][j] = b[i-1][j];
+         a[i][j] = a[i-1][j];
+       }
+     } 
+   
+    // Add the new values to the beginning of the array
+     for (let j = 0; j < m; j++) {
+       x1[0][j] = mouseX;
+       y1[0][j] = mouseY;
+       x2[0][j] = mouseX +int(random(-50,50));
+       y2[0][j] = mouseY +int(random(-25,50));
+       r[0][j] = 255;
+       g[0][j] = 225;
+       b[0][j] = 170;
+       a[0][j] = int(random(100,255));
+       
+     }
+     // Draw
+     for (let i = num-1; i > 0; i--) {
+       for (let j = 0; j < m; j++) {
+       strokeWeight(1);
+       stroke(r[i][j],g[i][j],b[i][j],a[i][j]-i*10);
+       fill(r[i][j],g[i][j],b[i][j]);
+         line(10+x1[i][j], 20+i*10+y1[i][j],10+x2[i][j]+(x2[i][j]-x1[i][j])*int(random(-i*0.1,i*0.1)) ,20+i*10+y2[i][j] +(y2[i][j]-y1[i][j])*int(random(-i*0.1,i*0.1)));
+       
+       //ellipse(x[i][j], y[i][j], i/2.0, i/2.0);
+       //ellipse(x2[i][j], y2[i][j], i/2.0, i/2.0);
+       }
+     }
+    }
+    if (cursor == 2){
+      for (let i = num-1; i > 0; i--) {
+       for (let j = 0; j < m; j++) {
+         x1[i][j] = x1[i-1][j];
+         y1[i][j] = y1[i-1][j];
+         x2[i][j] = x2[i-1][j];
+         y2[i][j] = y2[i-1][j];
+         r[i][j] = r[i-1][j];
+         g[i][j] = g[i-1][j];
+         b[i][j] = b[i-1][j];
+         a[i][j] = a[i-1][j];
+       }
+     } 
+ 
+     // Add the new values to the beginning of the array
+     for (let j = 0; j < m; j++) {
+       x1[0][j] = mouseX;
+       y1[0][j] = mouseY;
+       x2[0][j] = mouseX +int(random(-50,50));
+       y2[0][j] = mouseY +int(random(-25,50));
+       r[0][j] = 255;
+       g[0][j] = 225;
+       b[0][j] = 170;
+       a[0][j] = int(random(100,255));
+       
+     }
+   // Draw the circles
+       for (let i = num-1; i > 0; i--) {
+         for (let j = 0; j < m; j++) {
+         
+         
+         fill(r[i][j],g[i][j],b[i][j]);
+         
+         
+         ellipse(x1[i][j], y1[i][j], (num-i)/10.0, (num-i)/10.0);
+         ellipse(x2[i][j]+(x2[i][j]-x1[i][j])*0.1, y2[i][j]+(y2[i][j]-y1[i][j])*0.1, (num-i)/7.0, (num-i)/7.0);
+         }
+       }
+    }   
+    
+  }
 
-  if (status==1){
+  if (status===1){
     //frameRate(24);
     
     //file[music_index].stop();
-    
+    scale(percent_w, percent_h);
     fill(255);
     textSize(125);
     text("Piano Tiles", 250, 300);
@@ -230,4 +324,8 @@ function draw() {
 }
 function mousePressed() { 
   
+}
+
+function windowResized() {
+  resizeCanvas(screen_w, screen_h);
 }
