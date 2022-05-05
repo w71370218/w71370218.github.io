@@ -75,6 +75,10 @@ class MenuItem {
   }
 }
 
+function IsClick(x1,x2,y1,y2) {
+  return mouseIsPressed === true && mouseButton === LEFT && mouseX > x1*percent_w && mouseX < x2*percent_w && mouseY > y1*percent_h && mouseY < y2*percent_h
+}
+
 const screen_w = window.innerWidth;
 const screen_h = window.innerHeight;
 
@@ -158,6 +162,7 @@ let maps = [];
 
 function preload() {
   //m = loadSound('assets/music/La Campanella.mp3');
+  
 }
 
 function setup() {
@@ -308,21 +313,66 @@ function draw() {
     setting.display();
     exit.display();
     
-    /*
-    if (mousePressed == true && mouseButton == LEFT && mouseX > 480 && mouseX < 720 && mouseY > 500 && mouseY < 580){
+    if (IsClick(480, 720, 500, 580)){
       status=2;
     }
-    if (mousePressed == true && mouseButton == LEFT && mouseX > 480 && mouseX < 720 && mouseY > 600 && mouseY < 680){
+    if (IsClick(480,720,600,680)){
       status=7;
     }
     
-    if (mousePressed == true && mouseButton == LEFT && mouseX > 480 && mouseX < 720 && mouseY > 700 && mouseY < 780){
+    if (IsClick(480,720,700,780)){
       exit();
     }
-    */
+  }
+  //setting
+  if (status == 7){
+    scale(percent_w, percent_h);
+    fill(255);
+    ellipse(40,40,80,80);
+    fill(0);
+    
+    textSize(60);
+    text("←", 10, 60);
+    fill(255);
+    if (IsClick(0,80, 0 , 80)){
+      status = 1;
+    }
+    textSize(50);
+    //text("volume", 100,100);
+    text("cursor", 100,200);
+    text("background", 100,500);
+    textSize(30);
+    strokeWeight(1);
+    stroke(255,255,170);
+    noFill();
+    rect(135*(1+cursor),320,120,40);
+    rect(135*(1+background),620,120,40);
+    
+    text("none", 160,350);
+    if (IsClick(135, 255, 320 , 360)){
+      cursor = 0;
+    }
+    text("sparkle", 280,350);
+    if (IsClick(270, 390, 320, 360)){
+      cursor = 1;
+    }
+    text("glitter", 420,350);
+    if (IsClick(405, 520, 320, 360)){
+      cursor = 2;
+    }
+    
+    text("none", 160,650);
+    if (IsClick(135, 255, 620, 660)){
+      background = 0;
+    }
+    text("piano", 290,650);
+    if (IsClick(270, 390, 620, 660)){
+      background = 1;
+    }
+    
   }
 }
-function mousePressed() { 
+function mouseIsPressed() { 
   
 }
 
