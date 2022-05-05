@@ -25,7 +25,7 @@ class MenuItem {
     this.min = int(time)/60;
     this.sec = int(time)%60;
     this.text = name;
-    if (this.text.length()>=19){
+    if (this.text.length>=19){
       this.text = this.text.substring(0,19)+"...";
     }
     this.text_size = 50;
@@ -153,6 +153,8 @@ let again = new Button();
 let menu = new Button();
 let menulist = [];
 
+let music_file =[];
+
 //let table = new Table();/////
 let maps = [];
 
@@ -160,9 +162,31 @@ let maps = [];
  //csv
 
 
+
+
 function preload() {
+  httpRequest = new XMLHttpRequest();
+  httpRequest.open('GET', './assets/music',true);
+  httpRequest.send();
+  httpRequest.onreadystatechange = function() {
+    if (httpRequest.readyState === 4) {
+      html = httpRequest.response;
+      var d = $(html);
+      d[13].getElementsByTagName('a').forEach((ele) => {
+        //console.log(ele);
+        if (ele.getAttribute("href").includes(".mp3")){
+          music_filed = ele.href.replace((window.location.href).replace("game.html",""),"");
+          //console.log(music_filed);
+          music_file.push (loadSound(music_filed));
+          music_name = music_filed.replace("assets/music/","");
+          //music_file.push(music_name);
+          numsounds +=1;
+        }
+
+      });
+    }
+  }
   //m = loadSound('assets/music/La Campanella.mp3');
-  
 }
 
 function setup() {
@@ -170,7 +194,7 @@ function setup() {
   background(105, 105, 105);
   textSize(300);
   text("Loading...", 30, 30);
-
+  
   let a_rgb = color(255, 79, 109);
   let d_rgb = color(60, 232, 227);
   let l_rgb = color(80, 250, 130);
@@ -191,6 +215,11 @@ function setup() {
       b[i] = new Array();
       a[i] = new Array();
   } 
+
+  for (let i= 0;i<music_file.length;i++){
+    menulist[i] = new MenuItem();
+    menulist[i].start(i,"123", music_file[i].duration());
+  }
 }
 
 function draw() {
@@ -295,7 +324,7 @@ function draw() {
   if (status===1){
     //frameRate(24);
     
-    //file[music_index].stop();
+    //music_file[music_index].stop();
     scale(percent_w, percent_h);
     fill(255);
     textSize(125);
@@ -307,11 +336,9 @@ function draw() {
     text("Fu Jen University Library and Information Science Department", 300, 850);
     start.start(480,500,"Start");
     setting.start(480,600,"Setting");
-    exit.start(480,700,"Exit");
     
     start.display();
     setting.display();
-    exit.display();
     
     if (IsClick(480, 720, 500, 580)){
       status=2;
@@ -319,11 +346,75 @@ function draw() {
     if (IsClick(480,720,600,680)){
       status=7;
     }
+  }
+
+  if (status==2){ //menu screen
+    if (music_on==true) {
+      noLoop();
+      //frameRate(24);
+      for (let i = 0; i < numsounds; i++) {
+        music_file[i].stop();
+      }
+      //music_file[music_index].cue(music_file[music_index].duration()/2);
+      music_file[music_index].play();
+      music_on = false;
+    }
+
+
+    loop();
+    scale(percent_w, percent_h);
+    for (let i = 0; i < numsounds; i++) {
+      menulist[i].display();
+    }
     
-    if (IsClick(480,720,700,780)){
-      exit();
+    if ( music_file[music_index].isPlaying()== false){
+      music_on=true;
+    }
+    
+    fill(255);
+    ellipse(40,40,80,80);
+    fill(0);
+    
+    textSize(60);
+    text("←", 10, 60);
+    fill(255);
+    textSize(20);
+    text("Best With Headphones", 160, 850);
+    play = new Button();
+    play.start(160,750,"Play");
+    play.display();
+    
+    if (IsClick(0, 80, 0, 80)){
+      status = 1;
+    }
+    if (keyIsPressed == true){
+      if (key==CODED && keyCode==UP){
+        if (music_index -1 != -1){
+          music_index -=1;
+          for (let i = 0; i < numsounds; i++) {
+            menulist[i].up();
+          }
+        }
+      }
+      if (key==CODED && keyCode==DOWN){
+        if (music_index+1 != numsounds){
+          music_index +=1;
+          for (let i = 0; i < numsounds; i++) {
+            menulist[i].down();
+          }
+        }
+      }
+    }
+    if (IsClick(160,400,750,830)){
+      for (let i = 0; i < numsounds; i++) {
+        music_file[i].stop();
+      }
+      countdown_on=true;
+      t=3;
+      status=3;
     }
   }
+
   //setting
   if (status == 7){
     scale(percent_w, percent_h);
