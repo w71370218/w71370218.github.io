@@ -171,9 +171,10 @@ function preload() {
   httpRequest.onreadystatechange = function() {
     if (httpRequest.readyState === 4) {
       html = httpRequest.response;
+      console.log(html);
       var d = $(html);
       d[13].getElementsByTagName('a').forEach((ele) => {
-        //console.log(ele);
+        console.log(ele);
         if (ele.getAttribute("href").includes(".mp3")){
           music_filed = ele.href.replace((window.location.href).replace("game.html",""),"");
           //console.log(music_filed);
