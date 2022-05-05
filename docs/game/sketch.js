@@ -341,13 +341,16 @@ function draw() {
     //text("volume", 100,100);
     text("cursor", 100,200);
     text("background", 100,500);
+
     textSize(30);
     strokeWeight(1);
     stroke(255,255,170);
     noFill();
     rect(135*(1+cursor),320,120,40);
-    rect(135*(1+background),620,120,40);
+    rect(135*(1+bg),620,120,40);
     
+    fill(255);
+    noStroke();
     text("none", 160,350);
     if (IsClick(135, 255, 320 , 360)){
       cursor = 0;
@@ -363,11 +366,11 @@ function draw() {
     
     text("none", 160,650);
     if (IsClick(135, 255, 620, 660)){
-      background = 0;
+      bg = 0;
     }
-    text("piano", 290,650);
+    text("snow", 290,650);
     if (IsClick(270, 390, 620, 660)){
-      background = 1;
+      bg = 1;
     }
     
   }
