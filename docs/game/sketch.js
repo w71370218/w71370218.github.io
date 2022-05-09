@@ -165,6 +165,18 @@ let maps = [];
 
 
 function preload() {
+  let music_list;
+  fetch("./music_list.json").then(response => {
+      return response.json;
+  })
+  .then(jsondata => console.log(jsondata))
+  /*
+  music_list = response.json();
+  music_list.forEach((item) => {
+    console.log(item);
+  })
+  */
+  /*
   httpRequest = new XMLHttpRequest();
   httpRequest.open('GET', './assets/music',true);
   httpRequest.send();
@@ -187,6 +199,8 @@ function preload() {
       });
     }
   }
+  */
+
   //m = loadSound('assets/music/La Campanella.mp3');
 }
 
